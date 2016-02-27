@@ -40,3 +40,25 @@ if (isset($_REQUEST['pow'])) {
     }
     $result = implode(',', $result);
 }
+if (isset($_REQUEST['T3'])) {
+    $a = intval($_REQUEST['a']);
+    $b = intval($_REQUEST['b']);
+    $c = intval($_REQUEST['c']);
+    $d = ($b ^ 2) - 4 * ($a * $c);
+    if ($d < 0) {
+        $result = 'нету решения';
+    } else if ($d >= 0) {
+
+        $x1 = (-$b + sqrt($d)) / 2 * $a;
+        $x2 = (-$b - sqrt($d)) / 2 * $a;
+        $result = [$x1, $x2];
+        $result = implode(',', $result);
+    }
+
+}
+if (isset($_REQUEST['trap'])) {
+    $a = intval($_REQUEST['a']);
+    $b = intval($_REQUEST['b']);
+    $h = intval($_REQUEST['h']);
+    $result = 1 / 2 * (($a * $b) * $h);
+}

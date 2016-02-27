@@ -31,3 +31,12 @@ if (isset($_REQUEST['calc'])) {
             $result = "неизвестное действие";
     }
 }
+if (isset($_REQUEST['pow'])) {
+    $result = [];
+    $a = $_REQUEST['a'];
+    for ($i = 0; $i < 10; $i++) {
+        $result[$i] = pow($a, $i + 1);
+
+    }
+    $result = implode(',', $result);
+}

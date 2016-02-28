@@ -62,3 +62,40 @@ if (isset($_REQUEST['trap'])) {
     $h = intval($_REQUEST['h']);
     $result = 1 / 2 * (($a * $b) * $h);
 }
+if (isset($_REQUEST['MIN'])) {
+    $a = intval($_REQUEST['a']);
+    $b = intval($_REQUEST['b']);
+    if ($a < $b) {
+        $result = $a;
+    } elseif ($a > $b) {
+        $result = $b;
+    } else {
+        $result = 'Числа равны';
+    }
+}
+$result = '-';
+if (isset($_REQUEST['semafor'])) {
+    $operation = $_REQUEST['color'];
+    switch ($operation) {
+        case "Зеленый":
+            $result = 'Можно ити';
+            break;
+        case "Желтый":
+            $result = 'Нужно подождать';
+            break;
+        case "Красный":
+            $result = 'Стоять';
+            break;
+    }
+}
+if (isset($_REQUEST['policeman'])) {
+    $speedLimiter = intval($_REQUEST['speedLimiter']);
+    $speed = intval($_REQUEST['speed']);
+    if ($speed <= $speedLimiter) {
+        $result = 'ехать можна';
+    } elseif ($speed - 20 < $speedLimiter) {
+        $result = 'предуприждения';
+    } else {
+        $result = 'Штраф';
+    }
+}
